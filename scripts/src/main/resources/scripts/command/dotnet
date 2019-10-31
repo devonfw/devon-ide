@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+# shellcheck source=scripts/functions
+source "$(dirname "${0}")"/../functions
+cd "${DEVON_IDE_HOME}" || exit 255
+
+
+function doSetup() {    
+  local dotnetCommand
+  local software_version="3.0.100"
+  local fileSetup
+  local download_url
+
+  dotnetCommand=$(dotnet --version)
+  
+  if [ "$dotnetCommand" != "$software_version" ]
+  then    
+    if doIsMacOs
+    then
+      fileSetup="dotnet-sdk-3.0.100-osx-x64.pkg"    
+      download_url="https://download.visualstudio.microsoft.com/download/pr/5c281f95-91c4-499d-baa2-31fec919047a/38c6964d72438ac30032bce516b655d9/dotnet-sdk-3.0.100-osx-x64.pkg"
+    elif doIsWindows
+    then
+      fileSetup="dotnet-sdk-3.0.100-win-x64.exe"
+      download_url="https://download.visualstudio.microsoft.com/download/pr/53f250a1-318f-4350-8bda-3c6e49f40e76/e8cbbd98b08edd6222125268166cfc43/dotnet-sdk-3.0.100-win-x64.exe"
+    fi
+
+    if doIsMacOs || doIsWindows
+    then
+      doDownload "${download_url}"
+      doRunCommand "$HOME/Downloads/${fileSetup}"
+    fi
+
+    if [ -n "$dotnetCommand" ]
+    then
+      doEcho "Installing the devon4net API Template"
+      doRunCommand "dotnet new -i devon4net.WebApi.Template"
+      doEcho "devon4net API Template installed"
+    fi
+  fi
+}
+
+function doRun() {
+  doSetup
+  doEcho "Running: dotnet ${*}"
+  if doIsQuiet
+  then
+    dotnet "${@}" > /dev/null
+  else
+    dotnet "${@}"
+  fi
+}
+
+#CLI
+case ${1} in 
+"help" | "-h")
+  echo "Setup or run dotnet."
+  echo
+  echo "Arguments:"
+  echo " setup                    setup dotnet (install and verify)"
+  echo " create «name» [«args»]   create a new devon4net application"
+  echo
+  exit
+;;
+"setup" | "s")
+  doSetup setup
+;;
+"create" | "c")
+  shift
+  doSetup setup
+  dotnet new Devon4NetAPI
+;;
+*)
+  doRun "${*}"
+;;
+esac

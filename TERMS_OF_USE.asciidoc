@@ -1,12 +1,12 @@
 = Terms of Use
 
-We provide the computer program of `devonfw-ide`, (hereinafter "Software") free of charge to download. The documentation of this software is licensed under the terms of the http://creativecommons.org/licenses/by-nd/4.0/[Creative Commons License (Attribution-NoDerivatives 4.0 International)]. The source code of this software itself is licensensed under the terms of the https://github.com/devonfw/ide/blob/master/LICENSE[Apache License 2.0]. 
+We provide the computer program of `devon-ide`, (hereinafter "Software") free of charge to download. The documentation of this software is licensed under the terms of the http://creativecommons.org/licenses/by-nd/4.0/[Creative Commons License (Attribution-NoDerivatives 4.0 International)]. The source code of this software itself is licensensed under the terms of the https://github.com/devonfw/devon-ide/blob/master/LICENSE[Apache License 2.0]. 
 
 In accordance with the license terms, the user is entitled to use the Software free of charge (also commercially), provided that the copyright notice will be taken. 
 
 Because the software is provided free of charge, there is no warranty, to the extent permitted by applicable law. It is provided "as is" without warranties or conditions of any kind, either expressed or implied, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose. The entire risk as to the quality and performance of the program is with you. Should the software prove defective, you assume the cost of all necessary servicing, repair or correction.
 
-The software also requires open-source components of third-parties (providers), for which the respective open source license terms apply. The open-source components of third parties are not from us and must be licensed directly from the respective third party. The rights to use will be granted directly by the respective right owner to the extent of each relevant open source license terms. The user himself can download the desired third party components from the servers of the respective provider and install them in his own environment. As the software (devonfw-ide) is also capable to download third party components automatically for you, you have to apply to this terms and the licenses of the third party components before using it.
+The software also requires open-source components of third-parties (providers), for which the respective open source license terms apply. The open-source components of third parties are not from us and must be licensed directly from the respective third party. The rights to use will be granted directly by the respective right owner to the extent of each relevant open source license terms. The user himself can download the desired third party components from the servers of the respective provider and install them in his own environment. As the software (devon-ide) is also capable to download third party components automatically for you, you have to apply to this terms and the licenses of the third party components before using it.
 
 This software integrates the following third party components:
 
@@ -38,5 +38,6 @@ This software integrates the following third party components:
 
 |https://github.com/devonfw/devon4j[devon4j] |https://github.com/devonfw/devon4j/blob/develop/LICENSE.txt[ASL 2.0]
 |https://github.com/devonfw/devon4ng[devon4ng] |https://github.com/devonfw/devon4ng/blob/master/LICENSE.txt[ASL 2.0]
+|https://dotnet.microsoft.com/[Dotnet] |https://github.com/dotnet/core/blob/master/LICENSE.TXT[MIT] (https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx[Terms])
 |=======================
-
+ 
