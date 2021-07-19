@@ -100,8 +100,11 @@ if "!value:~0,1!" == "~" (
   set line=!line:%search%=%replacement%!
 )
 rem replace ${var} variable syntax with windows %var% syntax
-set line=!line:${=%%!
-set line=!line:}=%%!
+echo "%~2" | findstr /r "\${..*}" >nul
+if not errorlevel 1 (
+  set line=!line:${=%%!
+  set line=!line:}=%%!
+)
 set line=!line:"=!
 (
   rem endlocal in () block to access local variable and "export" it
